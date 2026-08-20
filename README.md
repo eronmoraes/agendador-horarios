@@ -17,7 +17,7 @@ API REST desenvolvida em **Java com Spring Boot** para gerenciamento de agendame
 - Spring Web (REST Controllers)
 - Spring Data JPA
 - Lombok
-- Banco de dados relacional (via JPA/Hibernate)
+- H2 Database (banco de dados em memória)
 
 ## 📁 Estrutura do projeto
 
@@ -79,7 +79,8 @@ Retorna `204 No Content` quando excluído com sucesso.
 ### Pré-requisitos
 - Java 17+
 - Maven
-- Banco de dados configurado (application.properties/yml)
+
+> O projeto usa **H2**, um banco de dados em memória — não é necessário instalar ou configurar nenhum banco externo para rodar localmente.
 
 ### Passos
 
@@ -93,6 +94,21 @@ cd agendador-horarios
 ```
 
 A API estará disponível em `http://localhost:8080`.
+
+### Console do H2
+
+Com a aplicação rodando, você pode acessar o console do banco em memória para visualizar as tabelas e dados diretamente pelo navegador:
+
+```
+http://localhost:8080/h2-console
+```
+
+**Dados de conexão:**
+- JDBC URL: `jdbc:h2:mem:agendamentos-db`
+- User Name: `sa`
+- Password: *(em branco)*
+
+> ⚠️ Por ser um banco em memória, todos os dados são perdidos ao reiniciar a aplicação.
 
 ## 📌 Regras de negócio
 
